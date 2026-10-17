@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayudas tras el terremoto: ¿qué han entregado?</title>
+<style>
+:root{--bg:#fff;--ink:#111;--muted:#6b6b6b;--line:#ececec;--red:#d0021b;color-scheme:light;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:34px 22px 48px}
+button{font:inherit;color:inherit;cursor:pointer}
+h1{border-top:4px solid var(--red);padding-top:22px;font:700 30px/1.15 Georgia,"Times New Roman",serif;margin:0 0 8px}
+h2{font:400 22px/1.2 Georgia,serif;margin:34px 0 12px}
+.sub{color:var(--muted);margin:0 0 18px;font-size:15px;max-width:60ch}
+svg{display:block;width:100%;height:auto}
+.tabs{display:flex;border-bottom:1px solid #ccc;margin:18px 0;overflow-x:auto}
+.tab{background:none;border:0;border-bottom:4px solid transparent;padding:10px 14px;font-weight:700;font-size:15px;margin-bottom:-1px;white-space:nowrap}
+.tab[aria-pressed=true]{border-bottom-color:var(--red)}
+.ctl{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:14px;align-items:center}
+.grp{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.grp small{font-size:12px;color:var(--muted);margin-right:2px}
+.pill{background:#fff;border:1px solid var(--ink);border-radius:999px;padding:4px 13px;font-size:13px;display:inline-flex;align-items:center;gap:6px}
+.pill[aria-pressed=true]{background:var(--ink);color:#fff}
+.pill i{width:10px;height:10px;border-radius:50%;display:inline-block;border:1px solid #fff}
+.note{font-size:13px;color:var(--muted);margin:14px 0 0;max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 14px;margin-top:22px}
+.st b{display:block;font:400 34px/1.05 Georgia,serif}.st span{font-size:13px;color:var(--muted);display:block;line-height:1.35}
+.st{border-top:3px solid var(--ink);padding-top:8px}.st:first-child{border-top-color:var(--red)}
+.seis{border-radius:6px}.pen{fill:var(--red)}.sl{font:700 22px Georgia,serif;fill:var(--red);opacity:0;transition:opacity .3s}
+.card{border-left:4px solid var(--red);background:#f8f8f8;padding:12px 16px;margin-bottom:16px;min-height:118px}
+.card .n{font-size:14px;font-weight:700}.card .t{font-size:12px;color:var(--muted)}
+.card b{display:block;font:400 30px/1.15 Georgia,serif;margin:2px 0}.card span{font-size:13px;color:var(--muted)}
+.rw{display:grid;grid-template-columns:minmax(110px,34%) 1fr;gap:12px;align-items:center;width:100%;background:none;border:0;padding:7px 4px;text-align:left}
+.rw:hover,.rw:focus-visible,.rw.on{background:#f6f6f6;outline:none}
+.rw .lb{font-size:13px;line-height:1.25}.rw.on .lb{font-weight:700}
+.tr{position:relative;display:block;height:16px;background:#f2f2f2;border-radius:3px}
+.fill{position:absolute;left:0;top:0;height:100%;width:0;border-radius:3px;transition:width .8s cubic-bezier(.2,.7,.2,1)}
+.v{position:absolute;top:-1px;font-size:12px;font-weight:700;white-space:nowrap;transition:left .8s cubic-bezier(.2,.7,.2,1)}
+/* Camión: carretera y ruedas sincronizadas (carretera 60 px/s; rueda r=11 → 69 px por vuelta ≈ 1,15 s) */
+.rd{stroke-dasharray:16 14;animation:rd .5s linear infinite}@keyframes rd{to{stroke-dashoffset:30}}
+.bg{animation:bgm 4s linear infinite}@keyframes bgm{from{transform:translateX(0)}to{transform:translateX(-640px)}}
+.tk{animation:come 1.6s cubic-bezier(.2,.8,.2,1) both}@keyframes come{from{transform:translateX(-440px)}to{transform:translateX(0)}}
+.bob{animation:bob 1.1s ease-in-out infinite alternate}@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-.8px)}}
+.wh{transform-box:fill-box;transform-origin:center;animation:sp 1.15s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.kc{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0 8px}
+.kc b{display:block;font:400 30px/1.05 Georgia,serif}.kc span{font-size:13px;color:var(--muted);line-height:1.35;display:block}
+.kc div{border-top:3px solid var(--ink);padding-top:8px}
+.hs{display:flex;flex-wrap:wrap;gap:3px;margin:8px 0}.hs svg{width:20px;height:20px;animation:pop .4s both}
+@keyframes pop{from{transform:scale(0)}}
+.mk{position:absolute;top:-6px;width:26px;height:26px;margin-left:-13px;transition:left .8s cubic-bezier(.2,.7,.2,1)}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl:before{content:"";position:absolute;left:78px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl li{position:relative;padding:0 0 18px 104px;animation:rise .5s both}
+.tl li:before{content:"";position:absolute;left:73px;top:5px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--ink)}
+.tl li.f:before{border-color:#bbb}.tl li.now:before{background:var(--red);border-color:var(--red);animation:ping 1.6s infinite}
+@keyframes ping{50%{box-shadow:0 0 0 7px rgba(208,2,27,.18)}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+.tl time{position:absolute;left:0;width:62px;text-align:right;top:1px;font-size:12px;font-weight:700;color:var(--muted)}
+.tl .now time{color:var(--red)}.tl b{display:block;font:400 16px/1.35 Georgia,serif}.tl p{margin:2px 0 0;font-size:13px;color:var(--muted);max-width:54ch}
+.tl li.f b{color:#555}
+.ring{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center}
+.ring circle{fill:none;stroke-width:15}.ring .arc{transition:stroke-dasharray 1.2s cubic-bezier(.2,.7,.2,1)}
+.src{margin-top:34px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+@media (max-width:560px){.grid,.kc{grid-template-columns:1fr 1fr}.ring{grid-template-columns:1fr}.ring svg{max-width:150px}.tl:before{left:58px}.tl li{padding-left:82px}.tl li:before{left:53px}.tl time{width:44px;font-size:11px}}
+@media (prefers-reduced-motion:reduce){.rd,.bg,.tk,.bob,.wh,.hs svg,.tl li,.now:before{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Ayudas tras el terremoto: ¿qué han entregado?</h1>
+  <p class="sub">Un balance de lo que fundaciones y empresas han canalizado desde el sismo de magnitud 7,4 del 10 de agosto, según El Espectador.</p>
+  <div id="app"></div>
+  <div class="src">Fuente: El Espectador (Redacción Economía), con cifras de la UNGRD, el RUD y las fundaciones citadas. Las cifras de ayuda son las reportadas por cada organización.</div>
+</div>
+<script>
+(function(){
+var $=id=>document.getElementById(id),app=$("app"),fm=n=>n.toLocaleString("es-CO");
+var TY={c:["Comprometido","#d0021b"],r:["Recibido","#111111"],i:["Invertido","#7a7a7a"],m:["Meta o presupuesto","#e58a93"]};
+var D=[
+["Familia Santo Domingo","c",100000,"Donación anunciada para respuesta humanitaria, estabilización y reconstrucción, canalizada por la Fundación Santo Domingo, Valorem y sus empresas."],
+["Bancolombia (el banco)","c",30000,"Comprometidos directamente por el banco para la recuperación de largo plazo."],
+["D1","c",20000,"Para entregar más de 3.000 toneladas de canasta básica y kits para bebé a 25.000 familias durante seis meses."],
+["Obras en Cali (presupuesto)","m",61988,"Presupuesto estimado de la Fundación Colombia Luz y Sonrisas para recuperar tres colegios y tres instituciones de salud. Están en diagnóstico y diseño."],
+["Fundación Luz y Sonrisas","r",54589,"Donaciones recibidas, todas de origen privado. El 81 % lo aportó la familia Gilinski, con destino a obras en Cali."],
+["Fundación Bancolombia","r",9300,"Donaciones de personas, empresas y organizaciones; son independientes de los COP 30.000 millones del banco."],
+["Ábaco","r",2229,"Donaciones monetarias para comprar alimentos y pagar la logística de transporte."],
+["Fundación Éxito","i",1883,"Más de esta cifra invertida en la etapa inicial. Por cada peso donado, la fundación aportó 2,4 pesos adicionales."],
+["Fundación Barco (meta)","m",378,"Recaudo adicional que busca para construir cerca de 20 viviendas más en el Valle del Cauca."]
+].map(x=>({n:x[0],t:x[1],v:x[2],d:x[3]}));
+var OG={
+ ab:["Ábaco","Ábaco",[[5221109,"","kilogramos de ayuda entregados"],[34953,"","familias beneficiadas"],[5795765,"","kilogramos gestionados en total"]],"Articuló un corredor humanitario con sus bancos de alimentos en Caldas, Chocó, Quindío, Risaralda y Valle del Cauca."],
+ ls:["Luz y Sonrisas","Fundación Colombia Luz y Sonrisas",[[5652,"","toneladas de ayuda llevadas a 80 municipios"],[48000,"más de ","personas atendidas"],[1250,"más de ","voluntarios y más de 30 centros de acopio"]],"Movilizó a más de 100 empresas. Su mayor apuesta de reconstrucción está en Cali."],
+ sd:["Santo Domingo","Fundación Santo Domingo",[[1854,"","toneladas de alimentos y aseo enviadas a seis departamentos"],[1000,"más de ","toneladas de ayudas movilizadas"],[100,"más de ","aliados en 'Empresas y Fundaciones Unidas por Colombia'"]],"De la emergencia nació una alianza con horizonte de trabajo hasta 2028."],
+ fe:["Éxito","Fundación Éxito",[[32000,"","familias acompañadas"],[78,"","municipios de cinco departamentos"],[500,"más de ","toneladas de paquetes alimentarios"]],"Se enfocó en gestantes, madres lactantes y niños menores de cinco años. Su segunda fase llega hasta diciembre de 2027."],
+ ga:["Grupo Argos","Fundación Grupo Argos",[[6200,"cerca de ","paquetes alimentarios"],[85000,"","litros de agua potable"],[6300,"unas ","personas y más de 200 empresas en 'Adopta un Hogar'"]],"Por cada peso que aporta una empresa o persona, la fundación pone otro."],
+ fb:["Bancolombia","Fundación Bancolombia",[[89,"","equipos médicos para hospitales de Manizales y Pereira"],[18,"","instituciones educativas con acciones de recuperación"],[220,"más de ","toneladas de alimentos"]],"Actuó en cinco departamentos y habilitó 10 contenedores para emprendedores de Roldanillo."],
+ hc:["Hoy por Colombia","Fundación Internacional María Luisa de Moreno",[[15000,"más de ","voluntarios en todo el país"],[2400,"más de ","personas atendidas en brigadas de salud"],[4500,"más de ","atenciones médicas, odontológicas y psicológicas"]],"Pide a los donantes exactamente lo que necesita cada familia, tras censarla vereda por vereda."],
+ ta:["Te Abrazo","Fundación Te Abrazo Colombia",[[500,"","mercados entregados"],[7,"","barrios de Quibdó"],[1500,"unas ","personas aliviadas en los días más críticos"]],"Armó su propio censo en el Chocó y llevó medicamentos hasta el Carmen del Darién."],
+ ci:["CIREC","Fundación CIREC",[[30,"","personas con dispositivos de movilidad en el Atrato chocoano"],[4,"","comunidades étnicas atendidas"],[400,"cerca de ","dispositivos proyectados antes de fin de año"]],"Entrega sillas de ruedas, muletas y caminadores a quienes el sismo dejó sin ellos."]
+};
+var TL=[["10 ago.","Terremoto de magnitud 7,4","Epicentro en el Chocó; afectó a 498 municipios de 16 departamentos.",""],["30 sep.","Corte del balance de la Fundación Santo Domingo","1.854 toneladas enviadas a seis departamentos.",""],["16 oct.","Corte de la rendición de cuentas de Luz y Sonrisas","Gastos administrativos de cerca de COP 11,9 millones.",""],["Hoy","Las obras en Cali siguen en diagnóstico y diseño","Tres colegios y tres instituciones de salud.","now"],["6 nov.","Consolidación de los estudios de las obras en Cali","","f"],["Nov.","Arranca la segunda fase de la Fundación Éxito","Acompañamiento de 14 meses, hasta diciembre de 2027.","f"],["Fin de 2026","Metas de vivienda del año","TECHO apunta a 100 y 'Adopta un Hogar' espera entregar cerca de 130.","f"],["2027","TECHO escala su meta a 1.000 viviendas","","f"],["2028","Horizonte de 'Empresas y Fundaciones Unidas por Colombia'","Alianza de más de 100 aliados.","f"]];
+var S={tab:"p",ty:"all",sc:"lin",sd:"Familia Santo Domingo",og:"ab",gl:"26"},raf=0;
+var pill=(a,v,l,on,c)=>'<button class="pill" data-a="'+a+'" data-v="'+v+'" aria-pressed="'+on+'">'+(c?'<i style="background:'+c+'"></i>':"")+l+"</button>";
+var tab=(v,l)=>'<button class="tab" data-a="tab" data-v="'+v+'" aria-pressed="'+(S.tab===v)+'">'+l+"</button>";
+var HOUSE='<svg viewBox="0 0 24 24" fill="#d0021b"><path d="M12 3L2 12h3v9h5v-6h4v6h5v-9h3z"/></svg>';
+function stat(n,pre,l,d,suf){return '<div class="st"><b><span>'+pre+'</span><span class="cu" data-n="'+n+'" data-d="'+(d||0)+'">0</span><span>'+(suf||"")+"</span></b><span>"+l+"</span></div>"}
+function panorama(){
+  var g="",pts=[],i;
+  for(i=0;i<=160;i++){var x=i*4,a=2.2*Math.sin(x*1.7)*Math.cos(x*.31),q=x-150;if(q>0)a+=54*Math.exp(-q/62)*Math.sin(q/3.1)*(1-Math.exp(-q/7));pts.push(x.toFixed(1)+","+(65-a).toFixed(1))}
+  for(i=0;i<=16;i++)g+='<line x1="'+i*40+'" x2="'+i*40+'" y1="0" y2="130" stroke="#eee"/>';
+  [25,65,105].forEach(y=>g+='<line x1="0" x2="640" y1="'+y+'" y2="'+y+'" stroke="'+(y===65?"#ddd":"#f1f1f1")+'"/>');
+  var h='<svg class="seis" viewBox="0 0 640 130" role="img" aria-label="Sismograma animado del terremoto de magnitud 7,4"><rect width="640" height="130" fill="#fff"/>'+g+'<path id="sp" d="M'+pts.join("L")+'" fill="none" stroke="#111" stroke-width="2" stroke-linejoin="round"/><circle id="pn" class="pen" r="5" cx="0" cy="65"/><text id="sl" class="sl" x="168" y="26">7,4</text></svg>';
+  h+='<div class="grid">'+stat(7.4,"","magnitud del sismo del 10 de agosto",1)+stat(500000,"casi ","personas afectadas, según la UNGRD")+stat(498,"","municipios afectados")+stat(16,"","departamentos")+stat(305791,"","familias damnificadas (RUD)")+stat(30,"COP ","costo estimado de la reconstrucción, según el Gobierno",0," billones")+"</div>";
+  return h+'<p class="note">Entre los departamentos afectados están Valle del Cauca, Risaralda, Chocó, Caldas, Quindío y Antioquia. El Valle registra más de 13.000 viviendas destruidas.</p>';
+}
+function seis(){
+  var p=$("sp"),pn=$("pn"),sl=$("sl"),L=p.getTotalLength(),t0=null;
+  cancelAnimationFrame(raf);
+  function set(f){p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-f);var q=p.getPointAtLength(L*f);pn.setAttribute("cx",q.x);pn.setAttribute("cy",q.y);sl.style.opacity=q.x>150?1:0}
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches){set(1);return}
+  function fr(t){if(!$("sp"))return;if(t0===null)t0=t;var e=(t-t0)/1000%8,f=Math.min(1,e/5.5);set(f);raf=requestAnimationFrame(fr)}
+  raf=requestAnimationFrame(fr);
+}
+function cu(){
+  document.querySelectorAll(".cu").forEach(el=>{
+    var n=+el.dataset.n,d=+el.dataset.d,f=v=>d?v.toFixed(d).replace(".",","):fm(Math.round(v)),t0=null;
+    if(matchMedia("(prefers-reduced-motion:reduce)").matches){el.textContent=f(n);return}
+    (function s(t){if(t0===null)t0=t;var k=Math.min(1,(t-t0)/1300);el.textContent=f(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(s)})(performance.now());
+  });
+}
+function dinero(){
+  var MAX=100000,v=D.filter(d=>S.ty==="all"||d.t===S.ty).sort((a,b)=>b.v-a.v),sel=D.find(d=>d.n===S.sd);
+  if(!v.some(d=>d.n===S.sd))sel=v[0];
+  var w=x=>(S.sc==="lin"?x/MAX:Math.log10(x)/Math.log10(MAX))*84;
+  var h='<div class="card" role="status"><div class="n">'+sel.n+' <span class="t">· '+TY[sel.t][0]+'</span></div><b>COP '+fm(sel.v)+' millones</b><span>'+sel.d+"</span></div>";
+  h+='<div class="ctl"><div class="grp">'+pill("ty","all","Todos",S.ty==="all")+Object.keys(TY).map(k=>pill("ty",k,TY[k][0],S.ty===k,TY[k][1])).join("")+'</div><div class="grp"><small>Escala</small>'+pill("sc","lin","Lineal",S.sc==="lin")+pill("sc","log","Logarítmica",S.sc==="log")+"</div></div>";
+  h+=v.map(d=>'<button class="rw'+(d.n===sel.n?" on":"")+'" data-a="sd" data-v="'+d.n+'"><span class="lb">'+d.n+'</span><span class="tr"><span class="fill" data-w="'+w(d.v)+'" style="background:'+TY[d.t][1]+'"></span><span class="v" data-l="'+(w(d.v)+1)+'" style="left:0">'+fm(d.v)+"</span></span></button>").join("");
+  return h+'<p class="note">Cifras en millones de pesos. No son comparables entre sí: unas son compromisos, otras donaciones recibidas, inversión ejecutada o presupuestos y metas. Con la escala logarítmica se ven las cifras pequeñas.</p>';
+}
+function truck(name){
+  /* Edificios en dos copias contiguas que se desplazan a la izquierda (el camión avanza a la derecha). */
+  var bl='<path d="M20 100V74L44 56 68 74V100Z"/><path d="M90 100V66L116 46 142 66V100Z"/><path d="M230 100V76L252 60 274 76V100Z"/><path d="M330 100V68L354 50 378 68V100Z"/><path d="M470 100V70L494 52 518 70V100Z"/><path d="M548 100V60L578 38 608 60V100Z"/>';
+  var wheel='<g class="wh"><circle r="11" fill="#222"/><path d="M-8 0H8M0-8V8" stroke="#aaa" stroke-width="2"/></g>';
+  return '<svg viewBox="0 0 640 130" role="img" aria-label="Camión de ayuda humanitaria de '+name+'"><rect width="640" height="130" fill="#fff"/>'
+   +'<g fill="#eee" class="bg">'+bl+'<g transform="translate(640 0)">'+bl+'</g></g>'
+   +'<rect y="100" width="640" height="20" fill="#1f1f1f"/><line class="rd" x1="0" x2="700" y1="110" y2="110" stroke="#fff" stroke-width="2" opacity=".8"/>'
+   /* .tk: entrada única; sin transform propio en los grupos que animamos, para que CSS no pise el translate */
+   +'<g class="tk"><g transform="translate(240 23)"><g class="bob">'
+   +'<rect x="0" y="0" width="140" height="58" rx="3" fill="#d0021b"/><text x="70" y="25" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Helvetica,Arial,sans-serif">'+name+'</text><path d="M70 51C60 45 57 39 62 35C65 33 69 35 70 38C71 35 75 33 78 35C83 39 80 45 70 51Z" fill="#fff"/><path d="M144 14H170L188 36V58H144Z" fill="#111"/><path d="M150 20H166L177 34H150Z" fill="#fff" opacity=".85"/><rect y="58" width="188" height="8" fill="#333"/>'
+   +'<g transform="translate(30 70)">'+wheel+'</g><g transform="translate(160 70)">'+wheel+'</g>'
+   +'</g></g></g></svg>';
+}
+function ayuda(){
+  var o=OG[S.og];
+  var h='<div class="ctl"><div class="grp">'+Object.keys(OG).map(k=>pill("og",k,OG[k][0],S.og===k)).join("")+"</div></div>"+truck(o[0]);
+  h+='<p class="note" style="margin:10px 0 0"><b style="color:#111">'+o[1]+"</b></p><div class=\"kc\">"+o[2].map(s=>'<div><b><span>'+s[1]+'</span><span class="cu" data-n="'+s[0]+'">0</span></b><span>'+s[2]+"</span></div>").join("")+"</div><p class=\"note\">"+o[3]+"</p>";
+  return h;
+}
+function prog(n,done,goal,txt,col,mk){
+  var p=Math.min(100,done/goal*100);
+  return '<div style="margin:14px 0"><div style="font-size:14px;font-weight:700">'+n+'</div><div class="tr" style="margin:8px 0 4px;overflow:visible"><span class="fill" data-w="'+p+'" style="background:'+col+'"></span><span class="mk" data-l="'+Math.max(2,p)+'" style="left:0">'+HOUSE+'</span></div><div style="font-size:13px;color:var(--muted)">'+txt+"</div></div>";
+}
+function viv(){
+  var g=+S.gl===26?100:1000,pt=(38/g*100).toFixed(1).replace(".",",");
+  var h='<div class="ctl"><div class="grp"><small>Meta de TECHO</small>'+pill("gl","26","2026 · 100 viviendas",S.gl==="26")+pill("gl","27","2027 · 1.000 viviendas",S.gl==="27")+"</div></div>";
+  h+=prog("TECHO Colombia",38,g,"38 viviendas de emergencia construidas en el Valle del Cauca (≈ "+pt+" % de la meta)","#d0021b");
+  h+=prog("'Adopta un Hogar' · Fundación Grupo Argos",130,1000,"Cerca de 130 previstas este año, de una meta de 1.000 viviendas (13 %)","#111");
+  h+=prog("Fundación Barco + TECHO · Restrepo, Valle","30","50".replace(/^/,""),"30 entregadas en tres semanas (22 m² cada una) y cerca de 20 más por financiar con COP 378 millones","#7a7a7a");
+  h+='<div style="margin:14px 0"><div style="font-size:14px;font-weight:700">Fundación Obras Sociales Betania · Manizales</div><div class="hs" aria-label="27 viviendas priorizadas">'+Array.from({length:27},(_,i)=>HOUSE.replace("<svg",'<svg style="animation-delay:'+(i*.03).toFixed(2)+'s"')).join("")+'</div><div style="font-size:13px;color:var(--muted)">27 viviendas priorizadas para reparación (cada casita es una), con el criterio de «habitabilidad express»</div></div>';
+  h+='<h2>Lo que viene</h2><ul class="tl">'+TL.map((t,i)=>'<li class="'+t[3]+'" style="animation-delay:'+i*.06+'s"><time>'+t[0]+"</time><b>"+t[1]+"</b>"+(t[2]?"<p>"+t[2]+"</p>":"")+"</li>").join("")+"</ul>";
+  h+='<h2>El reto: la transparencia</h2><div class="ring"><svg viewBox="0 0 150 150" role="img" aria-label="El 81 % de las donaciones de Luz y Sonrisas lo aportó la familia Gilinski"><circle cx="75" cy="75" r="56" stroke="#e8e8e8"/><circle class="arc" id="arc" cx="75" cy="75" r="56" stroke="#d0021b" stroke-dasharray="0 352" transform="rotate(-90 75 75)"/><text x="75" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#111">81 %</text><text x="75" y="95" text-anchor="middle" font-size="10" fill="#6b6b6b" font-family="Helvetica,Arial,sans-serif">familia Gilinski</text></svg><div><b>Luz y Sonrisas: COP 54.589 millones en donaciones privadas.</b><p class="note" style="margin-top:6px">El 81 % tiene destino específico: obras en instituciones educativas y centros de salud de Cali. Los gastos administrativos, a 16 de octubre, son de cerca de COP 11,9 millones, y el resto está en entidades financieras vigiladas, sujeto a los destinos de los donantes.</p></div></div>';
+  h+='<p class="note">Varios directivos señalan la trazabilidad de las ayudas como cuello de botella. Para TECHO, la transparencia debe ser una condición de la reconstrucción: que quien aporta pueda saber cómo se ejecutan los recursos, a qué comunidades llegan y qué resultados generan. El Gobierno estima la reconstrucción en cerca de COP 30 billones.</p>';
+  return h;
+}
+function render(){
+  cancelAnimationFrame(raf);
+  app.innerHTML='<div class="tabs">'+tab("p","Panorama")+tab("d","Dinero")+tab("a","Ayuda entregada")+tab("v","Reconstrucción")+"</div>"+({p:panorama,d:dinero,a:ayuda,v:viv})[S.tab]();
+  if(S.tab==="p")seis();
+  cu();
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    app.querySelectorAll(".fill[data-w]").forEach(e=>e.style.width=e.dataset.w+"%");
+    app.querySelectorAll("[data-l]").forEach(e=>e.style.left=e.dataset.l+"%");
+    var a=$("arc");if(a)a.setAttribute("stroke-dasharray",(.81*352)+" 352");
+  }));
+}
+app.addEventListener("click",e=>{
+  var b=e.target.closest("[data-a]");if(!b)return;
+  S[b.dataset.a==="tab"?"tab":b.dataset.a]=b.dataset.v;render();
+});
+render();
+})();
+</script>
+</body>
+</html>
